@@ -12,12 +12,13 @@ public class TodoMain {
 		Scanner sc = new Scanner(System.in);
 		TodoList l = new TodoList();
 		//l.importData("todolist.txt");
-		boolean isList = false;		//flag var
 		boolean quit = false;		//flag var
 		Menu.displaymenu();
 		do {
+			System.out.println("\n       ,Welcome back!");
+			System.out.print("~(^-^)~");
+		
 			Menu.prompt();
-			isList = false;
 			String choice = sc.next();
 			
 			switch (choice) {
@@ -27,11 +28,23 @@ public class TodoMain {
 				break;
 				
 			case "del" :
-				TodoUtil.deleteItem(l);
+				String item_id = sc.nextLine().trim();
+				TodoUtil.deleteItem(l, item_id);
 				break;
 				
 			case "edit" :
 				TodoUtil.updateItem(l);
+				break;
+				
+			case "comp" :	///complete item command
+				String item_id1 = sc.nextLine().trim();
+				String[] tokens = item_id1.split(" ");
+				for(String token : tokens) {
+					int temp = Integer.parseInt(token);
+					TodoUtil.completeItem(l, temp);
+				}
+				System.out.println("완료체크 햐였습니다.");
+				
 				break;
 				
 			case "ls" :
@@ -58,8 +71,8 @@ public class TodoMain {
 				TodoUtil.listAll(l, "due_date", 0);
 				break;
 				
-			case "help" :
-				Menu.displaymenu();
+			case "ls_comp" :	//list complete items command
+				TodoUtil.listAll(l, 1);
 				break;
 				
 			case "find" :
@@ -79,14 +92,15 @@ public class TodoMain {
 			case "exit" :
 				quit = true;
 				break;
+							
+			case "help" :
+				Menu.displaymenu();
+				break;
 				
 			default : 
-				System.out.println("Please enter the correct commmand (\"help\" for list of commands)");
+				System.out.println("올바른 명령어를 입려하시오 (\"help\" for list of commands)");
 				break;
 			}
-			
-			if(isList) TodoUtil.listAll(l);
 		} while (!quit);
-		//TodoUtil.saveList(l, "todolist.txt");
 	}
 }
