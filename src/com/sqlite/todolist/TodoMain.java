@@ -13,10 +13,10 @@ public class TodoMain {
 		TodoList l = new TodoList();
 		//l.importData("todolist.txt");
 		boolean quit = false;		//flag var
+		System.out.println("\n       ,Welcome back!");
+		System.out.print("~(^-^)~");
 		Menu.displaymenu();
 		do {
-			System.out.println("\n       ,Welcome back!");
-			System.out.print("~(^-^)~");
 		
 			Menu.prompt();
 			String choice = sc.next();

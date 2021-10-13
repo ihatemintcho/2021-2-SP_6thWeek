@@ -74,6 +74,7 @@ public class TodoUtil {
 		
 		System.out.print("[항목 수정]\n" + "수정할 항목의 번호를 입력하시오 > ");
 		int index = sc.nextInt();
+		
 		System.out.print("새 제목 > ");
 		new_title = sc.next().trim();
 		System.out.print("새 카테고리 > ");
