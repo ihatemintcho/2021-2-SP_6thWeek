@@ -89,6 +89,11 @@ public class TodoMain {
 				TodoUtil.listCateAll(l);
 				break;
 				
+			case "ls_only":
+				String field = sc.nextLine().trim();
+				TodoUtil.listOnly(l, field);
+				break;
+				
 			case "exit" :
 				quit = true;
 				break;

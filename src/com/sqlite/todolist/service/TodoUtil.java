@@ -1,6 +1,7 @@
 package com.sqlite.todolist.service;
 
 import java.util.*;
+
 import com.sqlite.todolist.dao.TodoItem;
 import com.sqlite.todolist.dao.TodoList;
 
@@ -172,6 +173,53 @@ public class TodoUtil {
 			}
 		}
 		System.out.printf("총 %d개의 항목을 찾았습니다.\n", count);
+	}
+
+
+	public static void listOnly(TodoList l, String field) {
+		for (TodoItem item : l.getList()) {
+			System.out.print(item.getId() + " ");
+			switch (field) {
+			
+			case "category" :
+				System.out.println(item.getDesc());
+				break;
+				
+			case "title" :
+				System.out.println(item.getCategory());
+				break;
+				
+			case "desc" :
+				System.out.println(item.getTitle());
+				break;
+				
+			case "current_date" :
+				System.out.println(item.getCurrent_date());
+				break;
+				
+			case "due_date" :
+				System.out.println(item.getDue_date());
+				break;
+				
+			case "is_completed" :
+				if(item.getIs_completed() == (1))
+					System.out.println("Completed");
+				else System.out.println("Not completed");
+				break;
+				
+			case "people" :
+				System.out.println(item.getPeople());
+				break;
+				
+			case "apparatus" :
+				System.out.println(item.getApparatus());
+				break;
+				
+			default :
+				System.out.println("Wrong field name!");
+				return;
+			}
+		}
 	}
 
 }

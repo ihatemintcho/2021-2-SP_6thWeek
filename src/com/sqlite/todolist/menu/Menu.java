@@ -17,6 +17,7 @@ public class Menu {
 		System.out.println("find <keyword> - find and display item that which contains a keyword");
 		System.out.println("find_cate <keyword> - find and display all items in searched catgory");
 		System.out.println("ls_cate - list all categories");
+		System.out.println("ls_only <field> - list only from a certain field");
 		System.out.println("exit - exit program");
 	}
 	
